@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module model_train</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>model_train</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/yiranjing/Desktop/COMP3988/Sign-Detection/Yiran/doc/model_train.py">/Users/yiranjing/Desktop/COMP3988/Sign-Detection/Yiran/doc/model_train.py</a></font></td></tr></table>
+    <p><tt>Model:&nbsp;Turn&nbsp;and&nbsp;Stop&nbsp;Sign&nbsp;Classification&nbsp;using&nbsp;NN<br>
+Author:&nbsp;Yiran&nbsp;Jing<br>
+Date:&nbsp;2&nbsp;Oct&nbsp;2020</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="PIL.Image.html">PIL.Image</a><br>
+<a href="PIL.ImageDraw.html">PIL.ImageDraw</a><br>
+<a href="PIL.ImageFont.html">PIL.ImageFont</a><br>
+</td><td width="25%" valign=top><a href="PIL.html">PIL</a><br>
+<a href="tensorflow.keras.html">tensorflow.keras</a><br>
+<a href="tensorflow.keras.layers.html">tensorflow.keras.layers</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+<a href="os.html">os</a><br>
+<a href="pathlib.html">pathlib</a><br>
+</td><td width="25%" valign=top><a href="matplotlib.pyplot.html">matplotlib.pyplot</a><br>
+<a href="seaborn.html">seaborn</a><br>
+<a href="tensorflow.html">tensorflow</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-configure_dataset"><strong>configure_dataset</strong></a>(train_ds, val_ds, test_ds)</dt><dd><tt>Configure&nbsp;the&nbsp;dataset&nbsp;for&nbsp;performance<br>
+&nbsp;<br>
+parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;train_ds:&nbsp;keras&nbsp;preprocessing&nbsp;image_dataset<br>
+&nbsp;&nbsp;&nbsp;&nbsp;val_ds:&nbsp;keras&nbsp;preprocessing&nbsp;image_dataset<br>
+&nbsp;&nbsp;&nbsp;&nbsp;test_ds:&nbsp;keras&nbsp;preprocessing&nbsp;image_dataset<br>
+&nbsp;<br>
+return:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;train_ds:&nbsp;keras&nbsp;preprocessing&nbsp;image_dataset<br>
+&nbsp;&nbsp;&nbsp;&nbsp;val_ds:&nbsp;keras&nbsp;preprocessing&nbsp;image_dataset<br>
+&nbsp;&nbsp;&nbsp;&nbsp;test_ds:&nbsp;keras&nbsp;preprocessing&nbsp;image_dataset</tt></dd></dl>
+ <dl><dt><a name="-draw_confusion_matrix"><strong>draw_confusion_matrix</strong></a>(model, val_ds)</dt><dd><tt>Plot&nbsp;confusion&nbsp;matrix&nbsp;and&nbsp;classification&nbsp;report<br>
+&nbsp;<br>
+parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class_names:&nbsp;list&nbsp;of&nbsp;string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;val_ds:&nbsp;keras&nbsp;preprocessing&nbsp;image_dataset</tt></dd></dl>
+ <dl><dt><a name="-draw_missclassification_images"><strong>draw_missclassification_images</strong></a>(class_name, model, test)</dt><dd><tt>Plot&nbsp;confusion&nbsp;matrix&nbsp;and&nbsp;classification&nbsp;report<br>
+&nbsp;<br>
+parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class_names:&nbsp;list&nbsp;of&nbsp;string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;model:&nbsp;model&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;test:&nbsp;keras&nbsp;preprocessing&nbsp;image_dataset</tt></dd></dl>
+ <dl><dt><a name="-listdir"><strong>listdir</strong></a>(path=None)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;containing&nbsp;the&nbsp;names&nbsp;of&nbsp;the&nbsp;files&nbsp;in&nbsp;the&nbsp;directory.<br>
+&nbsp;<br>
+path&nbsp;can&nbsp;be&nbsp;specified&nbsp;as&nbsp;either&nbsp;str,&nbsp;bytes,&nbsp;or&nbsp;a&nbsp;path-like&nbsp;object.&nbsp;&nbsp;If&nbsp;path&nbsp;is&nbsp;bytes,<br>
+&nbsp;&nbsp;the&nbsp;filenames&nbsp;returned&nbsp;will&nbsp;also&nbsp;be&nbsp;bytes;&nbsp;in&nbsp;all&nbsp;other&nbsp;circumstances<br>
+&nbsp;&nbsp;the&nbsp;filenames&nbsp;returned&nbsp;will&nbsp;be&nbsp;str.<br>
+If&nbsp;path&nbsp;is&nbsp;None,&nbsp;uses&nbsp;the&nbsp;path='.'.<br>
+On&nbsp;some&nbsp;platforms,&nbsp;path&nbsp;may&nbsp;also&nbsp;be&nbsp;specified&nbsp;as&nbsp;an&nbsp;open&nbsp;file&nbsp;descriptor;\<br>
+&nbsp;&nbsp;the&nbsp;file&nbsp;descriptor&nbsp;must&nbsp;refer&nbsp;to&nbsp;a&nbsp;directory.<br>
+&nbsp;&nbsp;If&nbsp;this&nbsp;functionality&nbsp;is&nbsp;unavailable,&nbsp;using&nbsp;it&nbsp;raises&nbsp;NotImplementedError.<br>
+&nbsp;<br>
+The&nbsp;list&nbsp;is&nbsp;in&nbsp;arbitrary&nbsp;order.&nbsp;&nbsp;It&nbsp;does&nbsp;not&nbsp;include&nbsp;the&nbsp;special<br>
+entries&nbsp;'.'&nbsp;and&nbsp;'..'&nbsp;even&nbsp;if&nbsp;they&nbsp;are&nbsp;present&nbsp;in&nbsp;the&nbsp;directory.</tt></dd></dl>
+ <dl><dt><a name="-load_data"><strong>load_data</strong></a>(foler)</dt><dd><tt>load&nbsp;train&nbsp;and&nbsp;test&nbsp;data&nbsp;from&nbsp;the&nbsp;given&nbsp;folder<br>
+&nbsp;<br>
+parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;foler:&nbsp;folder&nbsp;path<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+return:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;data_dir:&nbsp;relative&nbsp;path&nbsp;of&nbsp;train&nbsp;dataset<br>
+&nbsp;&nbsp;&nbsp;&nbsp;test_data_dir:&nbsp;relative&nbsp;path&nbsp;of&nbsp;test&nbsp;dataset</tt></dd></dl>
+ <dl><dt><a name="-plot_normalized_confusion_matrix"><strong>plot_normalized_confusion_matrix</strong></a>(y_true, y_pred, title, class_names)</dt><dd><tt>helper&nbsp;function&nbsp;of&nbsp;draw_missclassification_images<br>
+draw&nbsp;confusion&nbsp;matrix&nbsp;based&nbsp;on&nbsp;the&nbsp;raw&nbsp;matrix,&nbsp;adding&nbsp;label<br>
+&nbsp;<br>
+parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class_names:&nbsp;list&nbsp;of&nbsp;string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y_true:&nbsp;panda&nbsp;series<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y_pred:&nbsp;panda&nbsp;series</tt></dd></dl>
+ <dl><dt><a name="-plot_train_result"><strong>plot_train_result</strong></a>(model_result, epoch)</dt><dd><tt>plot&nbsp;the&nbsp;Training&nbsp;and&nbsp;Validation&nbsp;Accuracy&nbsp;and&nbsp;Training&nbsp;and&nbsp;Validation&nbsp;Loss<br>
+&nbsp;<br>
+parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;model_result:&nbsp;model&nbsp;fit&nbsp;result<br>
+&nbsp;&nbsp;&nbsp;&nbsp;epoch:&nbsp;integer</tt></dd></dl>
+ <dl><dt><a name="-rename"><strong>rename</strong></a>(src, dst, *, src_dir_fd=None, dst_dir_fd=None)</dt><dd><tt>Rename&nbsp;a&nbsp;file&nbsp;or&nbsp;directory.<br>
+&nbsp;<br>
+If&nbsp;either&nbsp;src_dir_fd&nbsp;or&nbsp;dst_dir_fd&nbsp;is&nbsp;not&nbsp;None,&nbsp;it&nbsp;should&nbsp;be&nbsp;a&nbsp;file<br>
+&nbsp;&nbsp;descriptor&nbsp;open&nbsp;to&nbsp;a&nbsp;directory,&nbsp;and&nbsp;the&nbsp;respective&nbsp;path&nbsp;string&nbsp;(src&nbsp;or&nbsp;dst)<br>
+&nbsp;&nbsp;should&nbsp;be&nbsp;relative;&nbsp;the&nbsp;path&nbsp;will&nbsp;then&nbsp;be&nbsp;relative&nbsp;to&nbsp;that&nbsp;directory.<br>
+src_dir_fd&nbsp;and&nbsp;dst_dir_fd,&nbsp;may&nbsp;not&nbsp;be&nbsp;implemented&nbsp;on&nbsp;your&nbsp;platform.<br>
+&nbsp;&nbsp;If&nbsp;they&nbsp;are&nbsp;unavailable,&nbsp;using&nbsp;them&nbsp;will&nbsp;raise&nbsp;a&nbsp;NotImplementedError.</tt></dd></dl>
+ <dl><dt><a name="-separate_train_val_test_data"><strong>separate_train_val_test_data</strong></a>(data_dir, test_data_dir)</dt><dd><tt>separate&nbsp;train,&nbsp;validation,&nbsp;and&nbsp;test&nbsp;data,&nbsp;and&nbsp;resize&nbsp;the&nbsp;image<br>
+we&nbsp;split&nbsp;20%&nbsp;data&nbsp;from&nbsp;train&nbsp;as&nbsp;the&nbsp;validation&nbsp;set<br>
+&nbsp;<br>
+&nbsp;<br>
+parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;data_dir:&nbsp;relative&nbsp;path&nbsp;of&nbsp;train&nbsp;dataset<br>
+&nbsp;&nbsp;&nbsp;&nbsp;test_data_dir:&nbsp;relative&nbsp;path&nbsp;of&nbsp;test&nbsp;dataset<br>
+&nbsp;<br>
+return:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;train_ds:&nbsp;keras&nbsp;preprocessing&nbsp;image_dataset<br>
+&nbsp;&nbsp;&nbsp;&nbsp;val_ds:&nbsp;keras&nbsp;preprocessing&nbsp;image_dataset<br>
+&nbsp;&nbsp;&nbsp;&nbsp;test_ds:&nbsp;keras&nbsp;preprocessing&nbsp;image_dataset</tt></dd></dl>
+ <dl><dt><a name="-train_CNN"><strong>train_CNN</strong></a>(train_ds, val_ds)</dt><dd><tt>train&nbsp;CNN&nbsp;model<br>
+&nbsp;<br>
+parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;train_ds:&nbsp;keras&nbsp;preprocessing&nbsp;image_dataset<br>
+&nbsp;&nbsp;&nbsp;&nbsp;val_ds:&nbsp;keras&nbsp;preprocessing&nbsp;image_dataset<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+return:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cnn_1:&nbsp;model&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cnn_history:&nbsp;model&nbsp;fit&nbsp;result</tt></dd></dl>
+ <dl><dt><a name="-visualization_train_data"><strong>visualization_train_data</strong></a>(class_names, train_ds)</dt><dd><tt>Visualization&nbsp;training&nbsp;data<br>
+&nbsp;<br>
+parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class_names:&nbsp;list&nbsp;of&nbsp;string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;train_ds:&nbsp;c</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>batch_size</strong> = 32<br>
+<strong>epochs</strong> = 7<br>
+<strong>foler</strong> = 'signed_map_test_2Oct'<br>
+<strong>img_height</strong> = 240<br>
+<strong>img_width</strong> = 240<br>
+<strong>learning_rate</strong> = 0.001<br>
+<strong>num_classes</strong> = 5</td></tr></table>
+</body></html>
